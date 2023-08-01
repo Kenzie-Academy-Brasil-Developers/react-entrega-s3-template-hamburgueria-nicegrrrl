@@ -1,11 +1,20 @@
 import { ProductCard } from "./ProductCard";
 
-export const ProductList = ({ products }) => {
+export const ProductList = ({ search, products }) => {
   return (
-    <ul>
-      {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
-    </ul>
+    <>
+      <span>Produtos listados: {products.length}</span>
+      {search ? <p>Resultados de busca para: {search}</p> : null}
+
+      {products.length > 0 ? (
+        <ul>
+          {products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </ul>
+      ) : (
+        <p>Nenhum produto encontrado</p>
+      )}
+    </>
   );
 };

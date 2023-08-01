@@ -17,6 +17,10 @@ export const HomePage = () => {
 
   const products = search ? productsResult : productList;
 
+  const cleanFilter = () => {
+    setSearch("");
+  };
+
   // useEffect montagem - carrega os produtos da API e joga em productList
   // useEffect atualização - salva os produtos no localStorage (carregar no estado)
   // adição, exclusão, e exclusão geral do carrinho
@@ -38,9 +42,9 @@ export const HomePage = () => {
 
   return (
     <>
-      <Header setSearch={setSearch} />
+      <Header setSearch={setSearch} cleanFilter={cleanFilter} />
       <main>
-        <ProductList products={products} />
+        <ProductList search={search} products={products} />
         <CartModal cartList={cartList} />
       </main>
     </>

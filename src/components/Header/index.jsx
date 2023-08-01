@@ -2,7 +2,7 @@ import { useState } from "react";
 import Logo from "../../assets/Logo.svg";
 import { MdSearch, MdShoppingCart } from "react-icons/md";
 
-export const Header = ({ setSearch }) => {
+export const Header = ({ setSearch, cleanFilter }) => {
   const [value, setValue] = useState("");
 
   const submit = (event) => {
@@ -19,6 +19,7 @@ export const Header = ({ setSearch }) => {
           <MdShoppingCart size={21} />
           <span>0</span>
         </button>
+
         <form onSubmit={submit}>
           <input
             type="text"
@@ -30,6 +31,7 @@ export const Header = ({ setSearch }) => {
             <MdSearch size={21} />
           </button>
         </form>
+        <button onClick={cleanFilter}>Limpar busca</button>
       </div>
     </header>
   );
