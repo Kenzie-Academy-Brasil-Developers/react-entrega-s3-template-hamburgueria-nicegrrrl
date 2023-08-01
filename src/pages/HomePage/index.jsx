@@ -7,6 +7,15 @@ import { api } from "../../services/api";
 export const HomePage = () => {
   const [productList, setProductList] = useState([]);
   const [cartList, setCartList] = useState([]);
+  const [search, setSearch] = useState("");
+
+  const productsResult = productList.filter(
+    (product) =>
+      product.name.toLowerCase().includes(search.toLowerCase()) ||
+      product.category.toLowerCase().includes(search.toLowerCase())
+  );
+
+  const products = search ? productsResult : productList;
 
   // useEffect montagem - carrega os produtos da API e joga em productList
   // useEffect atualização - salva os produtos no localStorage (carregar no estado)
@@ -29,9 +38,9 @@ export const HomePage = () => {
 
   return (
     <>
-      <Header />
+      <Header setSearch={setSearch} />
       <main>
-        <ProductList productList={productList} />
+        <ProductList products={products} />
         <CartModal cartList={cartList} />
       </main>
     </>
