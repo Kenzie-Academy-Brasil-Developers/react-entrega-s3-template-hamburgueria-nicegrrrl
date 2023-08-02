@@ -1,6 +1,4 @@
 export const ProductCard = ({ product, addProduct }) => {
-  console.log(addProduct);
-
   return (
     <li>
       <img src={product.img} alt={product.name} />
