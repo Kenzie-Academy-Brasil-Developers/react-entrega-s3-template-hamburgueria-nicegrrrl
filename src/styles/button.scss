@@ -1,12 +1,28 @@
 .buttonMedium {
+  width: fit-content;
   height: 40px;
   padding: 0 20px;
+  display: inline-flex;
+  align-items: center;
   color: var(--white);
-  background-color: var(--color-primary);
   border-radius: 8px;
+  font-weight: var(--font-weight-2);
+  transition: all 150ms ease-in-out;
 
-  &:hover {
-    background-color: var(--color-success);
-    // background-color: var(--color-success);
+  &.green {
+    background-color: var(--color-primary);
+  }
+  &.green:hover {
+    background-color: var(--color-primary-hover);
+  }
+
+  &.gray {
+    color: var(--gray-300);
+    background-color: var(--gray-100);
+  }
+
+  &.gray:hover {
+    color: var(--gray-100);
+    background-color: var(--gray-300);
   }
 }

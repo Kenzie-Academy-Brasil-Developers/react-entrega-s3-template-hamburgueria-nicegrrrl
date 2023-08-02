@@ -1,0 +1,41 @@
+.card {
+  width: 100%;
+  min-width: 300px;
+  min-height: 346px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--gray-100);
+  border-radius: 5px;
+
+  &:hover {
+    border-color: var(--color-primary);
+    transition: all 250ms ease-in-out;
+    transform: scale(1.1);
+  }
+
+  @media (min-width: 1120px) {
+    width: auto;
+  }
+}
+
+.productInfo {
+  padding: 20px;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.img {
+  max-height: 150px;
+  object-fit: contain;
+  background-color: var(--gray-0);
+}
+
+.spanCategory {
+  color: var(--gray-300);
+}
+
+.spanPrice {
+  color: var(--color-primary);
+}

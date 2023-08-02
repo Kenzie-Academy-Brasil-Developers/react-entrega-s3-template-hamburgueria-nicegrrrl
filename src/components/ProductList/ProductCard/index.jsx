@@ -1,17 +1,26 @@
+import styles from "./style.module.scss";
+
 export const ProductCard = ({ product, addProduct }) => {
   return (
-    <li>
-      <img src={product.img} alt={product.name} />
-      <div>
-        <h3>{product.name}</h3>
-        <span>{product.category}</span>
-        <span>
+    <li className={styles.card}>
+      <img className={styles.img} src={product.img} alt={product.name} />
+      <div className={styles.productInfo}>
+        <h3 className="heading3">{product.name}</h3>
+        <span className={`${styles.spanCategory} caption`}>
+          {product.category}
+        </span>
+        <span className={`${styles.spanPrice} body600Typography`}>
           {product.price.toLocaleString("pt-BR", {
             style: "currency",
             currency: "BRL",
           })}
         </span>
-        <button onClick={() => addProduct(product)}>Adicionar</button>
+        <button
+          className="buttonMedium gray"
+          onClick={() => addProduct(product)}
+        >
+          Adicionar
+        </button>
       </div>
     </li>
   );

@@ -38,7 +38,7 @@ export const Header = ({ setSearch, cleanFilter, setIsOpen, cartList }) => {
                 onChange={(e) => setValue(e.target.value)}
                 required
               />
-              <button type="submit" className="buttonMedium">
+              <button type="submit" className="buttonMedium green">
                 <MdSearch size={21} />
               </button>
             </form>
