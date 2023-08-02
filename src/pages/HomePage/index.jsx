@@ -3,6 +3,7 @@ import { CartModal } from "../../components/CartModal";
 import { Header } from "../../components/Header";
 import { ProductList } from "../../components/ProductList";
 import { api } from "../../services/api";
+import "../../styles/index.scss";
 
 export const HomePage = () => {
   const localCartList = localStorage.getItem("@kenzieBurger: cartList");
