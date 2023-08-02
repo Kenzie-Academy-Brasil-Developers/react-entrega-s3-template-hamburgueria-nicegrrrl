@@ -1,6 +1,6 @@
 import { ProductCard } from "./ProductCard";
 
-export const ProductList = ({ search, products }) => {
+export const ProductList = ({ search, products, addProduct }) => {
   return (
     <>
       <span>Produtos listados: {products.length}</span>
@@ -9,7 +9,11 @@ export const ProductList = ({ search, products }) => {
       {products.length > 0 ? (
         <ul>
           {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard
+              key={product.id}
+              product={product}
+              addProduct={addProduct}
+            />
           ))}
         </ul>
       ) : (

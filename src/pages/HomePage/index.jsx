@@ -5,8 +5,12 @@ import { ProductList } from "../../components/ProductList";
 import { api } from "../../services/api";
 
 export const HomePage = () => {
+  const localCartList = localStorage.getItem("@kenzieBurger: cartList");
+
   const [productList, setProductList] = useState([]);
-  const [cartList, setCartList] = useState([]);
+  const [cartList, setCartList] = useState(
+    localCartList ? JSON.parse(localCartList) : []
+  );
   const [search, setSearch] = useState("");
 
   const productsResult = productList.filter(
@@ -40,12 +44,35 @@ export const HomePage = () => {
     getProducts();
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem("@kenzieBurger: cartList", JSON.stringify(cartList));
+  }, [cartList]);
+
+  const addProduct = (product) => {
+    if (!cartList.some((cartItem) => cartItem.id === product.id)) {
+      setCartList([...cartList, product]);
+    } else {
+      alert("Item já adicionado!");
+    }
+  };
+
+  const removeProduct = (productId) => {
+    const filteredProducts = cartList.filter(
+      (product) => product.id !== productId
+    );
+    setCartList(filteredProducts);
+  };
+
   return (
     <>
       <Header setSearch={setSearch} cleanFilter={cleanFilter} />
       <main>
-        <ProductList search={search} products={products} />
-        <CartModal cartList={cartList} />
+        <ProductList
+          search={search}
+          products={products}
+          addProduct={addProduct}
+        />
+        <CartModal cartList={cartList} removeProduct={removeProduct} />
       </main>
     </>
   );
