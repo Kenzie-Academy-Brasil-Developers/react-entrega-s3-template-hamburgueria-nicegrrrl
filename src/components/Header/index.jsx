@@ -18,7 +18,6 @@ export const Header = ({ setSearch, cleanFilter, setIsOpen, cartList }) => {
         <div className={styles.headerContent}>
           <div className={styles.logoAndCart}>
             <img src={Logo} alt="Logo Kenzie Burguer" />
-            {/* <div> */}
             <button
               className={styles.cartButton}
               onClick={() => setIsOpen(true)}
@@ -45,7 +44,6 @@ export const Header = ({ setSearch, cleanFilter, setIsOpen, cartList }) => {
             </form>
           </div>
           {/* <button onClick={cleanFilter}>Limpar busca</button> */}
-          {/* </div> */}
         </div>
       </div>
     </header>
