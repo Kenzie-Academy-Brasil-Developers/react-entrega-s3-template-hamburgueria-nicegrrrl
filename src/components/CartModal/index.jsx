@@ -1,7 +1,12 @@
 import { MdClose } from "react-icons/md";
 import { CartItemCard } from "./CartItemCard";
 
-export const CartModal = ({ cartList, removeProduct, removeAllProducts }) => {
+export const CartModal = ({
+  cartList,
+  removeProduct,
+  removeAllProducts,
+  setIsOpen,
+}) => {
   const total = cartList.reduce((prevValue, product) => {
     return prevValue + product.price;
   }, 0);
@@ -10,7 +15,11 @@ export const CartModal = ({ cartList, removeProduct, removeAllProducts }) => {
     <div role="dialog">
       <div>
         <h2>Carrinho de compras</h2>
-        <button aria-label="close" title="Fechar">
+        <button
+          aria-label="close"
+          title="Fechar"
+          onClick={() => setIsOpen(false)}
+        >
           <MdClose size={21} />
         </button>
       </div>

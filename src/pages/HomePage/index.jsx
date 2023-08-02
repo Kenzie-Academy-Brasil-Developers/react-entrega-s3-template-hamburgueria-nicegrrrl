@@ -12,6 +12,7 @@ export const HomePage = () => {
     localCartList ? JSON.parse(localCartList) : []
   );
   const [search, setSearch] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
 
   const productsResult = productList.filter(
     (product) =>
@@ -28,7 +29,7 @@ export const HomePage = () => {
   // 👌🏻useEffect montagem - carrega os produtos da API e joga em productList
   // 👌🏻useEffect atualização - salva os produtos no localStorage (carregar no estado)
   // 👌🏻adição, exclusão, e exclusão geral do carrinho
-  // renderizações condições e o estado para exibir ou não o carrinho
+  // 👌🏻renderizações condições e o estado para exibir ou não o carrinho
   // 👌🏻filtro de busca
   // estilizar tudo com sass de forma responsiva
 
@@ -69,18 +70,26 @@ export const HomePage = () => {
 
   return (
     <>
-      <Header setSearch={setSearch} cleanFilter={cleanFilter} />
+      <Header
+        setSearch={setSearch}
+        cleanFilter={cleanFilter}
+        setIsOpen={setIsOpen}
+        cartList={cartList}
+      />
       <main>
         <ProductList
           search={search}
           products={products}
           addProduct={addProduct}
         />
-        <CartModal
-          cartList={cartList}
-          removeProduct={removeProduct}
-          removeAllProducts={removeAllProducts}
-        />
+        {isOpen ? (
+          <CartModal
+            cartList={cartList}
+            removeProduct={removeProduct}
+            removeAllProducts={removeAllProducts}
+            setIsOpen={setIsOpen}
+          />
+        ) : null}
       </main>
     </>
   );
