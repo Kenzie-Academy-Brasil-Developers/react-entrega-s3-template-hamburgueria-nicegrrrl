@@ -1,0 +1,12 @@
+.buttonMedium {
+  height: 40px;
+  padding: 0 20px;
+  color: var(--white);
+  background-color: var(--color-primary);
+  border-radius: 8px;
+
+  &:hover {
+    background-color: var(--color-success);
+    // background-color: var(--color-success);
+  }
+}
