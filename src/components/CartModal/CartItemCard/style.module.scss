@@ -1,0 +1,26 @@
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.cardInfo {
+  display: flex;
+  gap: 10px;
+
+  & > img {
+    width: 82.259px;
+    height: 80px;
+    background-color: var(--gray-100);
+    border-radius: 5px;
+    object-fit: contain;
+  }
+}
+
+.buttonDelete {
+  color: var(--gray-200);
+
+  &:hover {
+    color: var(--gray-300);
+  }
+}

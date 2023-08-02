@@ -1,9 +1,46 @@
+// refatorar com aquelas coisas do sass
+
+.buttonDefault {
+  width: fit-content;
+  height: 60px;
+  padding: 0 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  border-radius: 8px;
+  font-weight: var(--font-weight-2);
+  transition: all 150ms ease-in-out;
+
+  &.green {
+    background-color: var(--color-primary);
+  }
+  &.green:hover {
+    background-color: var(--color-primary-hover);
+  }
+
+  &.gray {
+    color: var(--gray-300);
+    background-color: var(--gray-100);
+  }
+
+  &.gray:hover {
+    color: var(--gray-100);
+    background-color: var(--gray-300);
+  }
+
+  &.full {
+    width: 100%;
+  }
+}
+
 .buttonMedium {
   width: fit-content;
   height: 40px;
   padding: 0 20px;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   color: var(--white);
   border-radius: 8px;
   font-weight: var(--font-weight-2);
