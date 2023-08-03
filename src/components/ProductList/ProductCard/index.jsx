@@ -16,7 +16,7 @@ export const ProductCard = ({ product, addProduct }) => {
           })}
         </span>
         <button
-          className="buttonMedium gray"
+          className={`buttonMedium gray ${styles.button}`}
           onClick={() => addProduct(product)}
         >
           Adicionar

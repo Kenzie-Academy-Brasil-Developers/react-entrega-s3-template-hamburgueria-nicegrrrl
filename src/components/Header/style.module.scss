@@ -56,6 +56,9 @@
 
 .formAndButton {
   display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
 
   @media (min-width: 1120px) {
     width: 30%;
@@ -74,8 +77,9 @@
   border-radius: 8px;
 
   // &:focus {
-  //   border-color: var(--gray-600 );
-  // POR QUE NÃO TÁ PEGANDO O FOCUS?
+  //   outline: none;
+  //   border: 2px solid var(--gray-600);
+  //   // POR QUE NÃO TÁ PEGANDO O FOCUS?
   // }
 }
 
@@ -89,5 +93,14 @@
 
   &::placeholder {
     color: var(--gray-100);
+  }
+}
+
+.buttonCleanSearch {
+  color: var(--gray-200);
+  font-weight: var(--font-weight-2);
+
+  &:hover {
+    color: var(--color-primary);
   }
 }

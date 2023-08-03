@@ -30,13 +30,17 @@ export const CartModal = ({
         <div className={styles.modalContent}>
           <div>
             <ul className={styles.list}>
-              {cartList.map((product) => (
-                <CartItemCard
-                  key={product.id}
-                  product={product}
-                  removeProduct={removeProduct}
-                />
-              ))}
+              {cartList.length > 0 ? (
+                cartList.map((product) => (
+                  <CartItemCard
+                    key={product.id}
+                    product={product}
+                    removeProduct={removeProduct}
+                  />
+                ))
+              ) : (
+                <p className="bodyTypography">O carrinho está vazio 😅</p>
+              )}
             </ul>
           </div>
           <div>

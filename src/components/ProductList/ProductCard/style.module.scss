@@ -13,6 +13,16 @@
     transform: scale(1.1);
   }
 
+  &:hover > div > button {
+    color: var(--white);
+    background-color: var(--color-primary);
+  }
+
+  &:hover > div > button:hover {
+    color: var(--white);
+    background-color: var(--color-primary-hover);
+  }
+
   @media (min-width: 1120px) {
     width: auto;
   }

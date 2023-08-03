@@ -4,6 +4,7 @@ import { Header } from "../../components/Header";
 import { ProductList } from "../../components/ProductList";
 import { api } from "../../services/api";
 import "../../styles/index.scss";
+import { toast } from "react-toastify";
 
 // 👌🏻useEffect montagem - carrega os produtos da API e joga em productList
 // 👌🏻useEffect atualização - salva os produtos no localStorage (carregar no estado)
@@ -54,8 +55,9 @@ export const HomePage = () => {
   const addProduct = (product) => {
     if (!cartList.some((cartItem) => cartItem.id === product.id)) {
       setCartList([...cartList, product]);
+      toast.success("Item adicionado com sucesso 😊");
     } else {
-      alert("Item já adicionado!");
+      toast.error("Item já adicionado 😅");
     }
   };
 

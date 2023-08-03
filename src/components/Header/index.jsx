@@ -42,8 +42,13 @@ export const Header = ({ setSearch, cleanFilter, setIsOpen, cartList }) => {
                 <MdSearch size={21} />
               </button>
             </form>
+            <button
+              className={`bodyTypography ${styles.buttonCleanSearch}`}
+              onClick={cleanFilter}
+            >
+              Limpar busca
+            </button>
           </div>
-          {/* <button onClick={cleanFilter}>Limpar busca</button> */}
         </div>
       </div>
     </header>
