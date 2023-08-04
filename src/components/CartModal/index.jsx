@@ -2,6 +2,7 @@ import { MdClose } from "react-icons/md";
 import { CartItemCard } from "./CartItemCard";
 
 import styles from "./style.module.scss";
+import { useEffect, useRef } from "react";
 
 export const CartModal = ({
   cartList,
@@ -13,13 +14,43 @@ export const CartModal = ({
     return prevValue + product.price;
   }, 0);
 
+  const modalRef = useRef(null);
+
+  useEffect(() => {
+    const handleOutClick = (event) => {
+      if (!modalRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener("mousedown", handleOutClick);
+    return () => {
+      window.removeEventListener("mousedown", handleOutClick);
+    };
+  }, []);
+
+  const buttonRef = useRef(null);
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        // setIsOpen(false);
+        buttonRef.current?.click();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  });
+
   return (
     <div className={styles.modalOverlay} role="dialog">
-      <div className={styles.modalBox}>
+      <div ref={modalRef} className={styles.modalBox}>
         <div className={styles.modalHeader}>
           <h2 className="heading3 white">Carrinho de compras</h2>
           <button
             className={styles.buttonClose}
+            ref={buttonRef}
             aria-label="close"
             title="Fechar"
             onClick={() => setIsOpen(false)}
